@@ -1,0 +1,69 @@
+1.download npm note taker "npm i notetaker"
+
+2.index.html is note taker is the starter screen
+    In the file make the page load to notes.html
+
+   #21 <a class="btn btn-primary btn-lg mt-4" href="/notes" this button makes it switch to note.html
+
+    
+
+
+3.create a server.js
+    create a server for both html
+
+    create a constructed function to hold the Note's Data.
+
+    Use note taker npm 
+
+
+
+
+   create a readFile to link html files
+switch (path) {
+   case '/food':
+     return fs.readFile(`${__dirname}/food.html`, (err, data) => {
+       if (err) throw err;
+       res.writeHead(200, { 'Content-Type': 'text/html' });
+       res.end(data);
+     });
+
+
+
+
+
+4. Go into css make "Note Title" box larger and have "Note Text" box inside of it.
+    #33 <input class="note-title">
+    #31 in css
+
+     #34 <textarea class="note-textarea" > 
+     #25 in css 
+
+     create a a save section function on the left side of note.html 
+
+     make the note-title box on the leftside 
+
+
+
+5. create a save button for note title / note text area in the navigation area(green bar)
+
+
+6.Make a button for note.html on lines #20 + #21
+
+    <i class="fas fa-save text-light save-note"></i>
+        save button 
+
+    make sure the save button save the typed info
+
+
+     <i class="fas fa-pen text-light new-note"></i>
+        write/pen button to create new text
+
+
+7. Left-side of note.html, make sure exisiting notes can be access to
+    when clicked on note title, make sure the notes show
+
+
+8. Finally make sure the  "pen icon" 
+generate a new "Note-Title" + new "note area" 
+    #21 <i class="fas fa-pen text-light new-note"></i>
+        write/pen button to create new text
