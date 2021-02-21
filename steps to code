@@ -8,7 +8,7 @@
     
 
 
-3.create a server.js
+3.create a server.js DONE DONE DONE DONE
     create a server for both html
 
     create a constructed function to hold the Note's Data.
@@ -31,7 +31,7 @@ switch (path) {
 
 
 
-4. Go into css make "Note Title" box larger and have "Note Text" box inside of it.
+4. DONE DONE Go into css make "Note Title" box larger and have "Note Text" box inside of it.
     #33 <input class="note-title">
     #31 in css
 

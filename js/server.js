@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const http = require('http');
+const { title } = require('process');
 
 // Sets up the Express App
 const app = express();
@@ -53,7 +54,7 @@ const handleRequest = (req, res) => {
       return renderHTML(`${path}.html`, res);
 
     case '/notes':
-    renderHTML('/../html/notes.html', res)
+    return renderHTML('/../html/notes.html', res)
 
     default:
       return renderHTML('/../html/index.html', res);
@@ -62,6 +63,23 @@ const handleRequest = (req, res) => {
 
 // Create the server, assign it to a variable called "server"
 const server = http.createServer(handleRequest);
+
+
+
+// Routes
+
+// Basic route that sends the user first to the AJAX Page
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
+
+app.get('/add', (req, res) => res.sendFile(path.join(__dirname, 'notes.html')));
+
+// Displays all notes
+app.get('/api/notes', (req, res) => res.json(notes));
+
+
+
+
+
 
 // Starts our server
 server.listen(PORT, () => {
