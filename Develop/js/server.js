@@ -53,7 +53,7 @@ const handleRequest = (req, res) => {
       return renderHTML(`${path}.html`, res);
 
     default:
-      return renderHTML('/index.html', res);
+      return renderHTML('/../html/index.html', res);
   }
 };
 
