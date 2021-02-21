@@ -1,4 +1,4 @@
-1.download npm note taker "npm i notetaker"
+1. download npm express server
 
 2.index.html is note taker is the starter screen
     In the file make the page load to notes.html
@@ -13,7 +13,7 @@
 
     create a constructed function to hold the Note's Data.
 
-    Use note taker npm 
+    Create two routes for both html
 
 
 
@@ -67,3 +67,19 @@ switch (path) {
 generate a new "Note-Title" + new "note area" 
     #21 <i class="fas fa-pen text-light new-note"></i>
         write/pen button to create new text
+
+
+
+
+
+
+
+9. Push to Heroku
+    touch .gitignore
+        node_modeules
+    
+    heroku login
+
+    heroku create
+
+    git push heroku main
