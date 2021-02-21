@@ -52,6 +52,9 @@ const handleRequest = (req, res) => {
     case '/server':
       return renderHTML(`${path}.html`, res);
 
+    case '/notes':
+    renderHTML('/../html/notes.html', res)
+
     default:
       return renderHTML('/../html/index.html', res);
   }
