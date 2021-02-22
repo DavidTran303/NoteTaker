@@ -1,18 +1,16 @@
 const router = require('express').Router();
-const { notStrictEqual } = require('assert');
 const fs = require('fs');
 const util = require("util");
 
-const readFileAsync = util.promisify(fs.readFile);
-const writeFileAsync = util.promisify(fs.writeFile);
+
 
 
 
 // GET "/api/notes" responds with all notes from the database
 router.get('/notes', function(req, res) {
   
-   readFileAsync('./db/db.json', function(err, data) {
-    res.json(getNotes(data));
+   fs.readFile('./db/db.json', function(err, data) {
+    res.json(JSON.parse(data));
     console.log(data)
     if (err) throw err;
   });
@@ -22,13 +20,13 @@ router.get('/notes', function(req, res) {
 router.post('/notes', (req, res) => {
    let addNotes = req.body
 
-    readFileAsync('./db/db.json', function(err, data)  {
+    fs.readFile('./db/db.json', function(err, data)  {
     res.json(getNotes)
     if (err) throw err;
     });
 
     // console.log("GET DATA" + data)
-    writeFileAsync('./db/db.json', function(err, data) {
+    fs.write('./db/db.json', function(err, data) {
       if(err) throw  err;
       res.send()
       notes.push(addNotes);
