@@ -71,10 +71,10 @@ const handleNoteSave = () => {
     text: noteText.value,
   };
   saveNote(newNote).then(() => {
-    console.log(newNote)
+    console.log(newNote);
     getAndRenderNotes();
     renderActiveNote();
-    console.log(getAndRenderNotes)
+    
   });
   
 };

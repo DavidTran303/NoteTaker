@@ -11,7 +11,7 @@ const addNotes = []
 // GET "/api/notes" responds with all notes from the database
 router.get('/notes', function(req, res) {
   
-   readFileAsync('../db/db.json', function(err, data) {
+   readFileAsync('/db/db.json', function(err, data) {
     res.json(getNotes(data));
     console.log(data)
     if (err) throw err;
@@ -22,16 +22,16 @@ router.get('/notes', function(req, res) {
 router.post('/notes', (req, res) => {
    let addNotes = req.body
 
-    readFileAsync('../db/db.json', function(err, data) {
-    res.json(getNotes(data));
-    console.log(data)
+    readFileAsync('/db/db.json', function(err, data)  {
+    res.json(getNotes)
     if (err) throw err;
-  });
+    });
+
     // console.log("GET DATA" + data)
-    writeFileAsync('../db/db.json', function(err, data) {
-      console.log(data)
+    writeFileAsync('/db/db.json', function(err, data) {
       if(err) throw  err;
-      notes.push(addNotes)
+      res.send()
+      notes.push(addNotes);
     });
   
 });
