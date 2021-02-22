@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const fs = require('fs');
 const util = require("util");
-
+const notes = []
 
 
 
@@ -18,17 +18,20 @@ router.get('/notes', function(req, res) {
 
 // POST "/api/notes", with current note
 router.post('/notes', (req, res) => {
-   let addNotes = req.body
+   let newNote = req.body
 
     fs.readFile('./db/db.json', function(err, data)  {
-    res.json(getNotes)
     if (err) throw err;
+
+    notes.push(newNote);
+
+
     });
 
     // console.log("GET DATA" + data)
     fs.write('./db/db.json', function(err, data) {
       if(err) throw  err;
-      res.send()
+      res.send(saveNotes())
       notes.push(addNotes);
     });
   
