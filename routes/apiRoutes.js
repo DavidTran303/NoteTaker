@@ -1,6 +1,14 @@
 const router = require('express').Router();
 const fs = require('fs');
 
+
+
+
+
+
+var newNoteData = require("../public/assets/js/index");
+
+
 // GET "/api/notes" responds with all notes from the database
 router.get('/notes', (req, res) => {
     fs.readFile('./db/db.json', function(err, data) {
