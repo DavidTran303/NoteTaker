@@ -26,7 +26,8 @@ router.post('/notes', (req, res) => {
 
   fs.readFile("./db/db.json", function (err, data) {
     if (err) throw err;
-    const dataArray = // parse data -----------^
+    const dataArray =  parse(newNote)
+    console.log(dataArray);
     dataArray.push(newNote);
 
     fs.writeFile()
