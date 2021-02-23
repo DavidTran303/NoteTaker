@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const fs = require('fs');
+const { parse } = require('path');
 const util = require("util");
-const notes = []
 
 
 
@@ -10,30 +10,29 @@ const notes = []
 router.get('/notes', function(req, res) {
   
    fs.readFile('./db/db.json', function(err, data) {
-    res.json(JSON.parse(data));
-    console.log(data)
     if (err) throw err;
+
+    console.log(data);
+
+     res.json(JSON.parse(data));
+    
   });
 });
 
 // POST "/api/notes", with current note
 router.post('/notes', (req, res) => {
-   let newNote = req.body
+   let newNote = req.body;
+  // add an ID to newNote
 
-    fs.readFile('./db/db.json', function(err, data)  {
-    if (err) throw err;
+  fs.readFile("./db/db.json", function (err, data) {
+    if (err) throw err;
+    const dataArray = // parse data -----------^
+    dataArray.push(newNote);
 
-    notes.push(newNote);
+    fs.writeFile()
+        // respond with the new note
 
-
-    });
-
-    // console.log("GET DATA" + data)
-    fs.write('./db/db.json', function(err, data) {
-      if(err) throw  err;
-      res.send(saveNotes())
-      notes.push(addNotes);
-    });
+  });
   
 });
 
@@ -43,3 +42,8 @@ router.delete('/notes/:id', (req, res) => {
 });
 
 module.exports = router;
+
+// POST "/api/notes", with current note
+router.post("/notes", (req, res) => {
+  
+});
