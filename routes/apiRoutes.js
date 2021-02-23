@@ -2,6 +2,7 @@ const router = require('express').Router();
 const fs = require('fs');
 const path = require('path');
 const util = require("util");
+const {v4: idGenerator} = require("uuid");
 
 
 
@@ -9,10 +10,10 @@ const util = require("util");
 // GET "/api/notes" responds with all notes from the database
 router.get('/notes', function(req, res) {
   
-   fs.readFile('./db/db.json', function(err, data) {
+   fs.readFile('./db/db.json',"utf-8" ,function(err, data) {
     if (err) throw err;
 
-    console.log(data);
+    console.log("GET", data);
 
      res.json(JSON.parse(data));
     
@@ -31,7 +32,7 @@ router.post('/notes', (req, res) => {
 
     console.log("DB before push")
     console.log(db)
-
+    newNote.id = idGenerator();
     // and new note to array
     db.push(newNote)
 
@@ -43,6 +44,9 @@ router.post('/notes', (req, res) => {
     
     // target and overwrite our db
     fs.writeFileSync(path.join(__dirname, "../db/db.json"), newDB)
+    res.json(newDB)
+
+     
   });
 });
 
@@ -54,7 +58,3 @@ router.delete('/notes/:id', (req, res) => {
 
 module.exports = router;
 
-// POST "/api/notes", with current note
-router.post("/notes", (req, res) => {
-  
-});
